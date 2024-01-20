@@ -1,5 +1,9 @@
 #!/usr/bin/env fish
 
+# Get the full path to the directory containing this script so we can run the TypeScript scripts
+set script_dir (dirname (status --current-filename))
+cd $script_dir
+
 function rollerball
     # Check for '-e' flag for edit mode
     if test "$argv[1]" = "-e"
