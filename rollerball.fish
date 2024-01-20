@@ -56,7 +56,7 @@ function rollerball
 
         # Open the URL
         if test -n "$selected_url"
-            xdg-open $selected_url
+            nohup xdg-open $selected_url >/dev/null 2>&1 &
         else
             echo "No selection made."
         end
