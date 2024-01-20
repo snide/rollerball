@@ -40,3 +40,7 @@ Running `rollerball -e` will launch your editor and allow you to add a new bookm
 ## Xata
 
 The primary purchase of this tool is to get data into a Xata database. At this point you can access your links from anywhere and build more specific tools.
+
+## Key commands in your OS
+
+You might find it usefull to make key commands to load up and then close rollerball quickly at a global level. In gnome I do this by setting a custom shortcut (found in settings / keyboard) using the command `alacritty -e fish -c "rollerball"`. Different Desktops handle key commands differently, but typically you need to open the terminal, and call rollerball from it.
