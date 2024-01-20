@@ -30,7 +30,7 @@ function rollerball
         end
 
         # Pass the raw output to column to format it into a table, ensuring tabs as the output separator
-        set formatted_records (printf "%s\n" $records | awk -F '\t' '{printf "%s\t%s\t%s\n", $1, $2, $3, $4}' | column -t -s (printf '\t') --output-separator (printf '\t'))
+        set formatted_records (printf "%s\n" $records | awk -F '\t' '{printf "%s\t%s\t%s\t%s\n", $1, $2, $3, $4}' | column -t -s (printf '\t') --output-separator (printf '\t'))
 
         # Define ANSI color code for resetting to default colors
         set color_reset (printf '\033[0m')
@@ -43,7 +43,7 @@ function rollerball
         # Pass the formatted table to fzf and capture the selection
         set selected (printf "%s\n" $formatted_records | fzf -m --reverse --preview "
             echo {} | awk -F '\\t' '{
-                printf \"%s%s%s. %s%s%s\\n  %s> %s%s\\n  %s# %s%s\\n\",
+                printf \"%s%s%s. %s%s%s\\n  %s> %s%s\\n  %s# Tags: %s%s\\n\",
                 \"$color_primary\", \$1, \"$color_reset\",
                 \"$color_secondary\", \$2, \"$color_reset\",
                 \"$color_reset\", \$3, \"$color_reset\",
