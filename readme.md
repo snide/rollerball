@@ -20,9 +20,8 @@ Rollerball is pretty specific and assumes you're running Fish on a Linux desktop
 3. Run `xata init --codegen=xata.ts` picking TypeScript
 4. Run `xata schema upload schema.json` and then `xata pull main`
 5. Set up a way to invoke Rollerball. Here are two ways you could do it.
-
-- Make a fish alias: `alias rollerball "~/path/to/rollerball.fish"`
-- Set up a symlink: `ln -s /path/to/rollerball.fish /usr/local/bin/rollerball`
+   - Make a fish alias: `alias rollerball "~/path/to/rollerball.fish"`
+   - Set up a symlink: `ln -s /path/to/rollerball.fish /usr/local/bin/rollerball`
 
 Now you should be able to run `rollerball -e` to create your first bookmark.
 
