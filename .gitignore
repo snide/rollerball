@@ -1,0 +1,5 @@
+.env
+.xatarc
+.xata
+xata.ts
+node_modules

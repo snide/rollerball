@@ -1,0 +1,43 @@
+{
+  "name": "Rollerball",
+  "version": "1.0.0",
+  "description": "Rollerball is a CLI tool that keeps track of bookmarks in a Xata database",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "search": "ts-node fetch.ts",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@xata.io/client": "^0.28.3",
+    "cheerio": "1.0.0-rc.12",
+    "node-fetch": "^2.6.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "prettier --config=.prettierrc.precommit.js --write",
+      "eslint --cache --fix"
+    ],
+    "*.fish": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/node": "^16.11.12",
+    "@types/node-fetch": "^2.5.12",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "dotenv": "^16.3.2",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^2.4.1",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}

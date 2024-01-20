@@ -1,0 +1,35 @@
+{
+  "tables": [
+    {
+      "name": "links",
+      "columns": [
+        {
+          "name": "title",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "title"
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "https://example.com"
+        },
+        {
+          "name": "tags",
+          "type": "string"
+        },
+        {
+          "name": "comment",
+          "type": "string"
+        },
+        {
+          "name": "isPrivate",
+          "type": "bool",
+          "notNull": true,
+          "defaultValue": "true"
+        }
+      ]
+    }
+  ]
+}
