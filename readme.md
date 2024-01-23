@@ -1,5 +1,7 @@
 # Rollerball
 
+[Demo video on my personal site](https://www.davesnider.com/posts/bookmarks)
+
 Rollerball is a bookmark manager inspired by the excellent, feature rich [buku](https://github.com/jarun/buku). I didn't really use all the features in Buku, and wanted to use [Xata](https://xata.io) as the data store. The rollerball [Fish shell](https://fishshell.com/) script wraps some Node scripts and allows you to search against the Xata database using an [FZF](https://github.com/junegunn/fzf) CLI.
 
 Rollerball handles data entry through your local `$EDTIOR`. For me that's [Neovim](https://neovim.io/)
@@ -39,7 +41,7 @@ Running `rollerball -e` will launch your editor and allow you to add a new bookm
 
 ## Xata
 
-The primary purchase of this tool is to get data into a Xata database. At this point you can access your links from anywhere and build more specific tools.
+The primary purpose of this tool is to get data into a Xata database. At this point you can access your links from anywhere and build more specific tools.
 
 ## Key commands in your OS
 
