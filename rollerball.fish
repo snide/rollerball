@@ -1,8 +1,20 @@
 #!/usr/bin/env fish
 
+# When loaded from Gnome, we need to make sure NVM is loaded into Fish shell
+if test -f $HOME/.nvm/nvm.sh
+   bass source $HOME/.nvm/nvm.sh
+end
+
 # Get the full path to the directory containing this script so we can run the TypeScript scripts
+# Only change directory if not already in the script directory
+# Get the full path to the directory containing this script
 set script_dir (dirname (status --current-filename))
 cd $script_dir
+
+# Ensure node_modules/.bin is in PATH
+if not contains $script_dir/node_modules/.bin $PATH
+    set -gx PATH $script_dir/node_modules/.bin $PATH
+end
 
 function rollerball
     # Check for '-e' flag for edit mode
@@ -13,15 +25,15 @@ function rollerball
         # If an ID is provided after '-e', use it; otherwise, start a new record
         if test (count $argv) -ge 1
             # Edit an existing record or create a new one
-            ts-node ./edit.ts $argv
+            pnpm exec ts-node ./edit.ts $argv
         else
             echo "No ID provided. Starting a new record."
-            ts-node ./edit.ts
+            pnpm exec ts-node ./edit.ts
         end
     else
         # Search mode
         # Run the fetch TypeScript script and capture its output
-        set records (ts-node ./fetch.ts $argv)
+        set records (pnpm exec ts-node ./fetch.ts $argv)
 
         # Check if records is not empty
         if test -z "$records"
@@ -38,7 +50,7 @@ function rollerball
         set color_secondary (printf '\033[32m') # Green, change the number for different colors
 
         # Define the key binding for editing
-        set edit_key_binding "ctrl-e:execute(ts-node ./edit.ts {1} > /dev/tty)+abort"
+        set edit_key_binding "ctrl-e:execute(pnpm exec ts-node ./edit.ts {1} > /dev/tty)+abort"
 
         # Pass the formatted table to fzf and capture the selection
         set selected (printf "%s\n" $formatted_records | fzf -m --reverse --preview "
